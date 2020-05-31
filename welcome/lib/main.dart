@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-           title: const Text('My app'),
-         ),
+          title: const Text('My app'),
+        ),
         body: Center(
           child: MyWidget(),
         ),
@@ -28,21 +28,26 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-  children: <Widget>[
-    Expanded(
-              child: Text(''),
-            ),
-Expanded(
-              child: Text('Welcome',style:TextStyle(fontSize:24)),
-            ),
- 
-RaisedButton(
-                        child: Text('RaisedButton', style: TextStyle(fontSize: 24)),
-                   
-                    ),
-
-
-  ],
-);
+      children: <Widget>[
+        
+        Expanded(
+          child: Center(
+        child: Text(
+          'Welcome',
+          textDirection: TextDirection.ltr,
+          style: TextStyle(
+            fontSize: 32,
+            color: Colors.black87,
+          ),
+        ),
+      ),
+          
+        ),
+        RaisedButton(
+          child: Text('RaisedButton', style: TextStyle(fontSize: 24)),
+        ),
+      ],
+      crossAxisAlignment: CrossAxisAlignment.end
+    );
   }
 }
