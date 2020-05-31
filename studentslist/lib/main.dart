@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   itemCount: students.length,
   itemBuilder: (BuildContext context, int index) {
     return Container(
-      height: 50,
+      margin: const EdgeInsets.all(15.0),
       child: Center(child: Text('Student ${students[index]}')),
     );
   }
