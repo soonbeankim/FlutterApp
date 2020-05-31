@@ -27,27 +27,22 @@ class MyApp extends StatelessWidget {
 class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        
-        Expanded(
-          child: Center(
-        child: Text(
-          'Welcome',
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-            fontSize: 32,
-            color: Colors.black87,
+    return Column(children: <Widget>[
+      Expanded(
+        child: Center(
+          child: Text(
+            'Welcome',
+            textDirection: TextDirection.ltr,
+            style: TextStyle(
+              fontSize: 32,
+              color: Colors.black87,
+            ),
           ),
         ),
       ),
-          
-        ),
-        RaisedButton(
-          child: Text('RaisedButton', style: TextStyle(fontSize: 24)),
-        ),
-      ],
-      crossAxisAlignment: CrossAxisAlignment.end
-    );
+      RaisedButton(
+        child: Text('RaisedButton', style: TextStyle(fontSize: 24)),
+      ),
+    ], crossAxisAlignment: CrossAxisAlignment.end);
   }
 }
