@@ -1,11 +1,3 @@
-// Flutter code sample for FutureBuilder
-
-// This sample shows a [FutureBuilder] that displays a loading spinner while it
-// loads data. It displays a success icon and text if the [Future] completes
-// with a result, or an error icon and text if the [Future] completes with an
-// error. Assume the `_calculation` field is set by pressing a button elsewhere
-// in the UI.
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -18,7 +10,7 @@ class MyApp extends StatelessWidget {
         theme: new ThemeData(accentColor: Colors.green),
         home: Scaffold(
           appBar: AppBar(
-            title: const Text('Stream Builder'),
+            title: const Text('Order 66'),
             backgroundColor: Colors.green,
           ),
           body: Center(
@@ -54,12 +46,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               Image(
                 image: NetworkImage(
                     'https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?impolicy=1by1_wide_1242'),
-                width: 300,
-                height: 150,
+                width: 600,
+                height: 300,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: Text('Result: ${snapshot.data}'),
+                child: Text('Oder 66 : ${snapshot.data}'),
               )
             ];
           } else if (snapshot.hasError) {
@@ -83,7 +75,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
               const Padding(
                 padding: EdgeInsets.only(top: 16),
-                child: Text('Awaiting result...'),
+                child: Text('Brewing...'),
               )
             ];
           }
