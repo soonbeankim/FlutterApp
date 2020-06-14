@@ -12,10 +12,8 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text(title)),
         body: ListView(
-          children: new List.generate(100, (index) => new ListTile(
-            title:Text('student ${index+1}')
-          ))
-        ),
+            children: List.generate(100,
+                (index) => new ListTile(title: Text('student ${index + 1}')))),
       ),
     );
   }
