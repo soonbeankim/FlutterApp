@@ -51,7 +51,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: Text('Oder 66 : ${snapshot.data}'),
+                child: Text('Order 66 : ${snapshot.data}'),
               )
             ];
           } else if (snapshot.hasError) {
