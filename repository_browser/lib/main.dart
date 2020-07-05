@@ -2,29 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
+import 'repository.dart';
+
 void main() {
   runApp(MyApp());
 }
 
-class Repository {
-  String name;
-  String commitUrl;
-}
-
 class MyApp extends StatelessWidget {
-  
-  Future<List<Repository>> searchRepositories() async{
-
+  Future<List<Repository>> searchRepositories() async {
     final url = 'https://api.github.com/search/repositories?q=flutter';
     final response = await http.get(url);
     if (response.statusCode != 200) {
       throw ('Request failed with status: ${response.statusCode}.');
     }
-    
+
     final jsonResponse = convert.jsonDecode(response.body);
     final items = jsonResponse['items'];
-    
-    return List<Repository>.from(items.map((item) { 
+
+    return List<Repository>.from(items.map((item) {
       // final myRepo = Repository();
       // myRepo.name = item['name'];
       // myRepo.commitUrl = item['commits_url'];
@@ -33,7 +28,6 @@ class MyApp extends StatelessWidget {
         ..name = item['name']
         ..commitUrl = item['commits_url'];
     }).toList());
-    
   }
 
   @override
@@ -49,26 +43,30 @@ class MyApp extends StatelessWidget {
                   if (!snapshot.hasData) {
                     return CircularProgressIndicator();
                   }
-                 return ListView.builder(
+                  return ListView.builder(
                       itemCount: snapshot.data.length,
                       itemBuilder: (BuildContext context, int index) {
                         return ListTile(
-      
-                            title: Text(snapshot.data[index].name),
-                            onTap:(){
-                              Navigator.push(context, MaterialPageRoute(
-                                builder:(context)=> DetailScreen(snapshot.data[index].commitUrl) ));
-                            },
-                        );});
-                      })));
+                          title: Text(snapshot.data[index].name),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailScreen(
+                                        snapshot.data[index].commitUrl)));
+                          },
+                        );
+                      });
+                })));
   }
 }
-class DetailScreen extends StatelessWidget{
- final String commitsUrl;
+
+class DetailScreen extends StatelessWidget {
+  final String commitsUrl;
   DetailScreen(this.commitsUrl);
+  
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('commits'),
