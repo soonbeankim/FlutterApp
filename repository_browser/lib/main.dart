@@ -20,10 +20,7 @@ class MyApp extends StatelessWidget {
     final items = jsonResponse['items'];
 
     return List<Repository>.from(items.map((item) {
-      // final myRepo = Repository();
-      // myRepo.name = item['name'];
-      // myRepo.commitUrl = item['commits_url'];
-      // return myRepo;
+    
       return Repository()
         ..name = item['name']
         ..commitUrl = item['commits_url'];
@@ -41,7 +38,7 @@ class MyApp extends StatelessWidget {
                 future: searchRepositories(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
-                    return CircularProgressIndicator();
+                    return Center(child: CircularProgressIndicator()); 
                   }
                   return ListView.builder(
                       itemCount: snapshot.data.length,
@@ -64,17 +61,42 @@ class MyApp extends StatelessWidget {
 class DetailScreen extends StatelessWidget {
   final String commitsUrl;
   DetailScreen(this.commitsUrl);
-  
+
+  Future <List<String>> searchCommitsMessage() async {
+    
+    final url = commitsUrl.substring(0, commitsUrl.indexOf('{')); // to remove " {/sha} " in commitsUrl
+    print(url);
+    final response = await http.get(url);
+    if (response.statusCode != 200) {
+      throw ('Request failed with status: ${response.statusCode}.');
+    }
+    final jsonResponse = convert.jsonDecode(response.body);
+    return List<String>.from(jsonResponse.map((item)=> item['commit']['message']).toList());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('commits'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Text(commitsUrl),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('commits'),
+        ),
+        body: FutureBuilder<List<String>>(
+          future: searchCommitsMessage(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(child: CircularProgressIndicator()); 
+            }
+            return ListView.builder(
+                itemCount: snapshot.data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    height: 50,
+                    child: Center(
+                      child: Text(snapshot.data[index]),
+                    ),
+                  );
+                });
+          },
+        ));
   }
 }
