@@ -63,10 +63,9 @@ class DetailScreen extends StatelessWidget {
   DetailScreen(this.commitsUrl);
 
   Future <List<String>> searchCommitsMessage() async {
-    print(' start !!! ${commitsUrl}');
-    final url = commitsUrl.substring(0, commitsUrl.indexOf('{'));
+    
+    final url = commitsUrl.substring(0, commitsUrl.indexOf('{')); // to remove " {/sha} " in commitsUrl
     print(url);
-    //String result = s.substring(0, s.indexOf('.'));
     final response = await http.get(url);
     if (response.statusCode != 200) {
       throw ('Request failed with status: ${response.statusCode}.');
