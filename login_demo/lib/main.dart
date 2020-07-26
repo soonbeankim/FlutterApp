@@ -12,22 +12,22 @@ class MyApp extends StatelessWidget {
       title: _title,
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: MyStatefulWidget(),
+        body: SignInWidget(),
       ),
     );
   }
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
+class SignInWidget extends StatefulWidget {
+  SignInWidget({Key key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _SignInWidgetState createState() => _SignInWidgetState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  final insertedID = TextEditingController();
-  final insertedPW = TextEditingController();
+class _SignInWidgetState extends State<SignInWidget> {
+  final idController = TextEditingController();
+  final pwController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -38,7 +38,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
-              controller: insertedID,
+              controller: idController,
               decoration: const InputDecoration(
                 hintText: 'Enter your ID',
               ),
@@ -47,7 +47,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
-              controller: insertedPW,
+              controller: pwController,
               decoration: const InputDecoration(
                 hintText: 'Enter your PW',
               ),
@@ -58,7 +58,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             child: RaisedButton(
               onPressed: () {
                 final snackBar = SnackBar(
-                  content: Text('ID:'+insertedID.text+', PW:'+insertedPW.text),
+                  content: Text('ID:'+idController.text+', PW:'+pwController.text),
                   action: SnackBarAction(
                     label: 'Undo',
                     onPressed: () {},
