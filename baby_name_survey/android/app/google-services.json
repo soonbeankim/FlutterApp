@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "292544286849",
+    "firebase_url": "https://baby-name-app-db-88538.firebaseio.com",
+    "project_id": "baby-name-app-db-88538",
+    "storage_bucket": "baby-name-app-db-88538.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292544286849:android:5b2d3c02c3004541b7bd80",
+        "android_client_info": {
+          "package_name": "com.example.babyNameSurvey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292544286849-rgreheqvftabd3mq7p4v89rs63r3hfun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsK1xhDLkogpA91sC6ZKyDKlm6vEkM5ps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292544286849-rgreheqvftabd3mq7p4v89rs63r3hfun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "292544286849-sdoognhfebvg3o4garlp4r1itd6dal5i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.babyNameSurvey"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292544286849:android:b61bbd592d1f19e4b7bd80",
+        "android_client_info": {
+          "package_name": "com.example.baby_name_survey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292544286849-rgreheqvftabd3mq7p4v89rs63r3hfun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsK1xhDLkogpA91sC6ZKyDKlm6vEkM5ps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292544286849-rgreheqvftabd3mq7p4v89rs63r3hfun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "292544286849-sdoognhfebvg3o4garlp4r1itd6dal5i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.babyNameSurvey"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
