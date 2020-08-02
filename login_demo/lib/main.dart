@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-/// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
   static const String _title = 'Sign in';
 
@@ -58,7 +57,8 @@ class _SignInWidgetState extends State<SignInWidget> {
             child: RaisedButton(
               onPressed: () {
                 final snackBar = SnackBar(
-                  content: Text('ID:'+idController.text+', PW:'+pwController.text),
+                  content: Text(
+                      'ID:' + idController.text + ', PW:' + pwController.text),
                   action: SnackBarAction(
                     label: 'Undo',
                     onPressed: () {},
