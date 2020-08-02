@@ -21,15 +21,8 @@ class MyApp extends StatelessWidget {
  }
 }
 
-class MyHomePage extends StatefulWidget {
- @override
- _MyHomePageState createState() {
-   return _MyHomePageState();
- }
-}
-
-class _MyHomePageState extends State<MyHomePage> {
- @override
+class MyHomePage extends StatelessWidget {
+  @override
  Widget build(BuildContext context) {
    return Scaffold(
      appBar: AppBar(title: Text('Baby Name Votes')),
@@ -42,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
    stream: Firestore.instance.collection('baby').snapshots(),
    builder: (context, snapshot) {
      if (!snapshot.hasData) return LinearProgressIndicator();
-
      return _buildList(context, snapshot.data.documents);
    },
  );
